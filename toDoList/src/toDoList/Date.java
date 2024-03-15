@@ -7,7 +7,7 @@ public class Date {
 	protected int year;
 	
 	public Date(int day, int month, int year) {
-		if(day > 31 || month > 12) {
+		if(day > 31 || month > 12 || day < 0 || month < 0 || year < 0) {
 			throw new IllegalArgumentException("Invalid day or month input");
 		}
 		else {
@@ -22,7 +22,7 @@ public class Date {
 	}
 
 	public void setDay(int day) {
-		if(day > 31) {
+		if(day > 31 || day < 0) {
 			throw new IllegalArgumentException("Invalid day input");
 		}
 		else {
@@ -35,7 +35,7 @@ public class Date {
 	}
 
 	public void setMonth(int month) {
-		if(month > 12) {
+		if(month > 12 || month < 0) {
 			throw new IllegalArgumentException("Invalid month input");
 		}
 		else {

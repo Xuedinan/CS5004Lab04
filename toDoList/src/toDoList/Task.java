@@ -16,7 +16,7 @@ public class Task {
 	
 	@Override
 	public String toString() {
-		return "\nTask: " + content + "\nDate: " + date + "\nStatus: " + status + "\nPriority: " + priority + "\n"; 
+		return "\nTask: " + content + "\nDate: " + date + "\nStatus: " + status + "\nPriority: " + priority; 
 	}
 
 	public String getContent() {
@@ -61,7 +61,13 @@ public class Task {
 		}
 	}
 	
-	// change date TODO
+	// change date
+	public void changeDate(int day, int month, int year) {
+		// checking invalid input in Date class so no need to check here
+		date.setDay(day);
+		date.setMonth(month);
+		date.setYear(year);
+	}
 	
 	
 }

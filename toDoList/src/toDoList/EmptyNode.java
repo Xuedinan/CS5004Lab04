@@ -19,10 +19,37 @@ public class EmptyNode<T> implements Node<T>{
 		return new EmptyNode();
 	}
 
-	@Override
 	public String toString() {
 		return "";
 	}
-	
 
+	@Override
+	public Node removedLeftNodes(Predicate<T> tester) {
+		return null;
+	}
+
+	@Override
+	public Node<T> getNext() {
+		return null;
+	}
+
+	@Override
+	public void setNext(Node<T> next) {
+	}
+
+	@Override
+	public T getData() {
+		return null;
+	}
+
+	@Override
+	public int countNodes(Predicate<T> tester) {
+		return 0;
+	}
+
+	@Override
+	public String printStatusNode(Predicate<T> tester) {
+		return "";
+	}
+	
 }

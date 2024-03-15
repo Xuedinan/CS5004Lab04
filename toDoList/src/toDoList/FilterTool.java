@@ -22,10 +22,13 @@ public class FilterTool {
     }
     
     // checking for same task
-    
-    
-    // comparing date
-    
+    public Predicate<Task> contentCheck(String content) {
+        return task -> task.getContent().contains(content);
+    }
     
     // provide period tasks
+    public Predicate<Task> datePeriodCheck(ExpiredDate start, ExpiredDate end) {
+        return task -> end.isBefore(task.getDate()) && start.isAfter(task.getDate());
+    }
+    
 }

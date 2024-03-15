@@ -1,7 +1,7 @@
 package toDoList;
 import java.util.function.Predicate;
 
-public class LinkedList<T> implements PrintNode<T>, RemoveNode<T> {
+public class LinkedList<T> {
 
 	private Node<T> data;
 	
@@ -10,7 +10,6 @@ public class LinkedList<T> implements PrintNode<T>, RemoveNode<T> {
 	}
 	
 	public LinkedList(T m) {
-		
 		data = new TaskNode(m, new EmptyNode());
 	}
 	
@@ -18,9 +17,35 @@ public class LinkedList<T> implements PrintNode<T>, RemoveNode<T> {
 		this.data = data;
 	}
 	
-	
 	public void addNode(T m) {
 		data = new TaskNode(m, data);
+	}
+	
+	public void removeAllNode() {
+		data = null;
+	}
+	
+	public T removeSingleNode(int position) {
+		// check if position is in the range
+	   if (position < 0 || position >= data.count()) {
+	        throw new IllegalArgumentException ("Invalid input position for remove node");
+	    }
+	    return removeSingleNodeHelper(data, null, position);
+	}
+	
+	private T removeSingleNodeHelper(Node<T> current, Node<T> previous, int position) {
+	    // find right position to remove
+	    if (position == 0) {
+	        // if position is first node
+	        if (previous == null) {
+	            data = current.getNext(); // update head
+	        } else {
+	            previous.setNext(current.getNext()); // connect prev.next node with next node
+	        }
+	        return current.getData(); // return removed node
+	    }
+	    // move to next node
+	    return removeSingleNodeHelper(current.getNext(), current, position - 1);
 	}
 	
 	public String toString() {
@@ -38,22 +63,12 @@ public class LinkedList<T> implements PrintNode<T>, RemoveNode<T> {
 	public LinkedList getNodes(Predicate<T> tester) {
 		return new LinkedList(data.getStatusNodes(tester));
 	}
-
-	@Override
-	public Node removeNodes(Predicate<T> tester) {
-		// TODO Auto-generated method stub
-		return null;
+	
+	public int countNodes(Predicate<T> tester) {
+		return data.countNodes(tester);
 	}
-
-	@Override
-	public void printAllNodes() {
-		// TODO Auto-generated method stub
-		
+	
+	public void printStatusNode(Predicate<T> tester) {
+	  System.out.println(data.printStatusNode(tester));
 	}
-
-	@Override
-	public void printExpiredNode(Predicate<T> tester) {
-		// TODO Auto-generated method stub
-	}
-
 }

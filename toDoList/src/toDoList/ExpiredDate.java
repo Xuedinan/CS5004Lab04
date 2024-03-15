@@ -24,4 +24,22 @@ public class ExpiredDate extends Date{
             return false;
         }
     }
+    
+    public boolean isAfter(Date taskDate) {
+        // get task date
+        int taskDay = taskDate.getDay();
+        int taskMonth = taskDate.getMonth();
+        int taskYear = taskDate.getYear();
+        
+        // compare expired date with task date
+        if (taskYear > year) {
+            return true;
+        } else if (taskYear == year && taskMonth > month) {
+            return true;
+        } else if (taskYear == year && taskMonth == month && taskDay > day) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
