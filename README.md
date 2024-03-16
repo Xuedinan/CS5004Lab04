@@ -32,6 +32,19 @@ Semester: 2024 Spring
 	- provide checking tools when filter out task
  
 ### Driver test process
+1. create LinkedList, Task, date, ExpiredDate object with valid, and invalid input
+2. add more task
+3. remove single task
+4. count all task
+5. get task by condition
+6. remove task by condition
+7. print out task by condition
+8. print in period task
+9. change date on task
+10. count all task by condition
+11. print similar content task
+12. remove all task
+13. print all task
 
 ### Writing assignment
 
