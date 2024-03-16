@@ -6,7 +6,7 @@ Semester: 2024 Spring
 
 ### My submission includes following directory/files
 
-- program
+- program\
   <img width="306" alt="image" src="https://github.com/Xuedinan/CS5004Lab04/assets/144306521/dcceee04-1dd9-4b2a-97fe-d7f8dd0f5417">
 
 
