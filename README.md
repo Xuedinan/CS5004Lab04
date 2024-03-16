@@ -60,4 +60,4 @@ In my program, I also apply extension as;
 - Create clear driver for testing
 - More design element, FilterTool, Status ENUM, prepare to extend
 - Code defensively for most of methods
-	- Use interface over abstract and inheritance for future extension 
+- Use interface over abstract and inheritance for future extension 
