@@ -26,7 +26,7 @@ public class Task {
 	// print information of Task
 	@Override
 	public String toString() {
-		return "\nTask: " + content + "\nDate: " + date + "\nStatus: " + status + "\nPriority: " + priority; 
+		return "\nTask: " + content + "\nDate: " + date + "\nStatus: " + status + "\nPriority: " + priority + "\n"; 
 	}
 	
 	// getters and setters
