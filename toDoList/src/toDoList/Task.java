@@ -1,24 +1,35 @@
 package toDoList;
 
+/*
+ * Course: CS5004
+ * Semester: Spring 2024
+ * Assignment: Lab04
+ * Name: Xuedinan Gao
+ */
+
+// this is Task Class to contain all the information for each task 
+
 public class Task {
 
 	private String content;
 	private Date date;
-	private TaskStatus status;
-	private PriorityType priority;
+	private TaskStatus status; // TaskStatus is ENUM 
+	private PriorityType priority; // PriorityType is ENUM
 	
+	// consturctor
 	public Task(String content, Date date, TaskStatus status, PriorityType priority) {
 		this.content = content;
 		this.date = date;
 		this.status = status;
 		this.priority = priority;
 	}
-	
+	// print information of Task
 	@Override
 	public String toString() {
 		return "\nTask: " + content + "\nDate: " + date + "\nStatus: " + status + "\nPriority: " + priority; 
 	}
-
+	
+	// getters and setters
 	public String getContent() {
 		return content;
 	}
@@ -38,7 +49,8 @@ public class Task {
 	public TaskStatus getStatus() {
 		return status;
 	}
-
+	
+	// check if status is valid 
 	public void setStatus(TaskStatus status) {
 		if(!(status instanceof TaskStatus)) {
 			throw new IllegalArgumentException("Invalid input for task status setting. ");
@@ -51,7 +63,8 @@ public class Task {
 	public PriorityType getPriority() {
 		return priority;
 	}
-
+	
+	// check if prioirty is valid
 	public void setPriority(PriorityType priority) {
 		if(!(priority instanceof PriorityType)) {
 			throw new IllegalArgumentException("Invalid input for task priority setting. ");

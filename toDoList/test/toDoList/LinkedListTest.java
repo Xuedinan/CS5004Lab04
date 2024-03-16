@@ -1,5 +1,12 @@
 package toDoList;
 
+/*
+ * Course: CS5004
+ * Semester: Spring 2024
+ * Assignment: Lab04
+ * Name: Xuedinan Gao
+ */
+
 import static org.junit.Assert.*;
 
 import org.junit.Test;

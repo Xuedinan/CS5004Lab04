@@ -2,6 +2,17 @@ package toDoList;
 
 import java.util.function.Predicate;
 
+/*
+ * Course: CS5004
+ * Semester: Spring 2024
+ * Assignment: Lab04
+ * Name: Xuedinan Gao
+ */
+
+// this is EmptyNode as based case for recursively checking linked list
+// all functions return 0, null, "" since it's the last node on the linked list
+// It implements interface Node
+
 public class EmptyNode<T> implements Node<T>{
 
 	@Override

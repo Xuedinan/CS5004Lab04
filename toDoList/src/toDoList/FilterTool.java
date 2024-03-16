@@ -1,6 +1,16 @@
 package toDoList;
 import java.util.function.Predicate;
 
+/*
+ * Course: CS5004
+ * Semester: Spring 2024
+ * Assignment: Lab04
+ * Name: Xuedinan Gao
+ */
+
+// This is tool class, using for filtering out task with status, priority, date, content
+// all methods return boolean by using predicate interface
+
 public class FilterTool {
 	
 	// constructor to create filter tool

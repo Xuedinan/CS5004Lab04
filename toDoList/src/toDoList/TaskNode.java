@@ -1,16 +1,28 @@
 package toDoList;
 import java.util.function.Predicate;
 
+/*
+ * Course: CS5004
+ * Semester: Spring 2024
+ * Assignment: Lab04
+ * Name: Xuedinan Gao
+ */
+
+// this is TaskNode contains all the information for each node on the linked list
+// It implements interface Node
+
 public class TaskNode<T> implements Node<T> {
 
 	private T data;
-	private Node nextTask;
+	private Node nextTask; // pointer to the next node
 	
+	// construct a TaskNode with next node to apply to linked list structure
 	public TaskNode(T data, Node nextTask) {
 		this.data = data;
 		this.nextTask = nextTask;
 	}
 	
+	// getters and setters
 	public T getData(){
 		return data;
 	}
@@ -23,15 +35,18 @@ public class TaskNode<T> implements Node<T> {
 		this.nextTask = nextTask;
 	}
 	
+	// count total TaskNode created
 	@Override
 	public int count() {
 		return 1+ nextTask.count();
 	}
 	
+	// pint current and next node
 	public String toString() {
 		return data.toString() + nextTask.toString();
 	}
 	
+	// get task by input index
 	@Override
 	public T getTaskNode(int position) {
 		if(position == 0) {
@@ -41,26 +56,32 @@ public class TaskNode<T> implements Node<T> {
 		return (T) nextTask.getTaskNode(--position);
 	}
 	
+	// get task by condition check, will using Predicate interface and FilterTool class when implemented
 	@Override
 	public Node getStatusNodes(Predicate<T> tester) {
 		if(tester.test(data)) {
 			return new TaskNode(data, nextTask.getStatusNodes(tester));
 		}
 		else {
-			return nextTask.getStatusNodes(tester);
+			return nextTask.getStatusNodes(tester); // recursively check each node
 		}
 	}
 	
+	// remove task by condition check, only return what left after removed
+	// will using Predicate interface and FilterTool class when implemented
 	@Override
 	public Node removedLeftNodes(Predicate<T> tester) {
 		if(!tester.test(data)){
 			return new TaskNode(data, nextTask.removedLeftNodes(tester));
 		}
 		else {
-			return nextTask.removedLeftNodes(tester);
+			return nextTask.removedLeftNodes(tester); // recursively check each node
 		}
 	}
 	
+	// count number of tasks by selected check
+	// e.g. count task with HIGH priority, count task with ONGOING status
+	// will using Predicate interface and FilterTool class when implemented
 	@Override
 	public int countNodes(Predicate<T> tester) {
 		//counter variable
@@ -75,7 +96,10 @@ public class TaskNode<T> implements Node<T> {
 	    }
 	    return counter;
 	}
-
+	
+	// print tasks by selected check
+	// e.g. print task with HIGH priority, print task with ONGOING status
+	// will using Predicate interface and FilterTool class when implemented
 	public String printStatusNode(Predicate<T> tester) {
 		// create StringBuilder to receive result
 	    StringBuilder result = new StringBuilder();
